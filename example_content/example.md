@@ -1,9 +1,3 @@
-{{ config(
-		to_email = 'dylan+to@dbanalytics.co',
-		from_email = 'dylan+from@dbanalytics.co',
-		subject = 'This is a test email.'
-	)}}
-
 Hello everyone, 
 
 Here's your daily stats update.
@@ -27,6 +21,8 @@ We added **{{ look_single_value(5061) }}** new clients yesterday.
 ## And another one
 
 {{ look_png(5064, 600, 300) }}
+
+Dylan changed this.
 
 Best,
 Dylan

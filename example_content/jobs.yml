@@ -1,0 +1,10 @@
+version: 1
+
+jobs:
+
+  - name: daily_usage_update
+    template: example
+    css: example
+    to_email: dylan+to@dbanalytics.co
+    from_email: dylan+from@dbanalytics.co
+    subject: Check out this Agent K email!
