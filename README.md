@@ -4,6 +4,45 @@ Agent K is a command-line tool to send emails with content generated from Looker
 
 This tool is named after the greatest Men In Black agent of all-time, [Kevin 'Agent K' Brown](https://en.wikipedia.org/wiki/Agent_K). After his first retirement, Agent K worked in the post office, hence the name for this tool. (Tenuous, I know.)  
 
+## What does an Agent K template look like?
+
+```markdown
+{{ config(
+		to_email = 'dylan+to@dbanalytics.co',
+		from_email = 'dylan+from@dbanalytics.co',
+		subject = 'This is a test email.'
+	)}}
+
+Hello everyone, 
+
+Here's your daily stats update.
+
+## Add a single number to some text!
+
+{% if look_single_value(5061) < 0 %}
+We lost **{{ look_single_value(5061)|abs }}** clients yesterday.
+{% else %}
+We added **{{ look_single_value(5061) }}** new clients yesterday.
+{% endif %}
+
+## Create a table in HTML
+
+{{ look_table(5062) }}
+
+## Take a visualisation directly from the PNG
+
+{{ look_png(5062, 600, 200) }}
+
+## And another one
+
+{{ look_png(5064, 600, 300) }}
+
+Best,
+Dylan
+```
+
+When you run Agent K, it will query Looker for the relevant data and visualisations based on `{{ }}` references in your template. Currently, you can insert a Single Value, HTML Table, and Visualisation png file. The config is set from within the file as well.
+
 ## Installation
 
 To run Agent K, you need Python 3.5+.
@@ -30,6 +69,5 @@ To run, the following environment variables need to be present:
 * CLOUDINARY_API_KEY
 * CLOUDINARY_API_SECRET
 
-## Running Agent K
 
-#### Making a template
+
