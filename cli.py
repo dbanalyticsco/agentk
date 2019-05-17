@@ -1,8 +1,4 @@
 import click
-import markdown
-from jinja2 import Template
-from looker import Looker
-from email_client import EmailConfig
 from runner import run_job, find_jobs
 
 @click.group()

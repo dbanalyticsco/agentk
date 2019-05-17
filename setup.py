@@ -12,7 +12,9 @@ setup(
         'sendgrid',
         'click',
         'lookerapi',
-        'cloudinary'
+        'cloudinary',
+        'markdown',
+        'pyyaml'
     ],
     entry_points='''
         [console_scripts]

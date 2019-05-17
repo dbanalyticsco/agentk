@@ -56,8 +56,3 @@ def run_job(jobs_file, template_directory, job_name, base_url, client_id, client
 	html = markdown.markdown(doc, extensions=extensions, output_format='html5')
 	email_config.add_content(html)
 	email_config.send_email()
-	
-	# Write to .html file
-	f = open("rendered_content/demofile.html", "w")
-	f.write(email_config.content)
-	f.close()

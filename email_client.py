@@ -21,7 +21,8 @@ class EmailConfig:
 
 	def add_content(self, html_content):
 
-		f = open('example_content/example.css', 'r')
+		css_file = os.environ.get('CSS_FILE')
+		f = open(css_file, 'r')
 		style_guide = f.read()
 		f.close()
 
