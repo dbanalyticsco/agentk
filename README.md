@@ -8,9 +8,9 @@ This tool is named after the greatest Men In Black agent of all-time, [Kevin 'Ag
 
 ```markdown
 {{ config(
-		to_email = 'dylan+to@dbanalytics.co',
-		from_email = 'dylan+from@dbanalytics.co',
-		subject = 'This is a test email.'
+	to_email = 'dylan+to@dbanalytics.co',
+	from_email = 'dylan+from@dbanalytics.co',
+	subject = 'This is a test email.'
 	)}}
 
 Hello everyone, 
@@ -42,6 +42,8 @@ Dylan
 ```
 
 When you run Agent K, it will query Looker for the relevant data and visualisations based on `{{ }}` references in your template. Currently, you can insert a Single Value, HTML Table, and Visualisation png file. The config is set from within the file as well.
+
+You can use conditional logic within your Jinja as well, allowing you to dynamically change your text based on results pulled from Looker. You could even choose to include certain graphs over others, depending on what you dynamically want to highlight on a given day.
 
 ## Installation
 
