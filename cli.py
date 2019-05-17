@@ -19,7 +19,7 @@ def run(base_url, client_id, client_secret, port):
 	client = Looker(base_url, client_id, client_secret, port)
 
 	# Load template
-	f = open('example_templates/example.md', 'r')
+	f = open('example_content/example.md', 'r')
 	TEMPLATE = f.read()
 	f.close()
 
@@ -27,6 +27,7 @@ def run(base_url, client_id, client_secret, port):
 	email_template = Template(TEMPLATE)
 	email_template.globals['look_single_value'] = client.get_look_single_value
 	email_template.globals['look_table'] = client.get_look_table
+	email_template.globals['look_png'] = client.get_look_png
 
 	email_config = EmailConfig()
 	email_template.globals['config'] = email_config.add_config
@@ -38,12 +39,11 @@ def run(base_url, client_id, client_secret, port):
 	# Convert the Markdown as HTML5
 	html = markdown.markdown(doc, extensions=extensions, output_format='html5')
 	email_config.add_content(html)
-
 	email_config.send_email()
 	
 	# Write to .html file
-	f = open("demofile.html", "w")
-	f.write(html)
+	f = open("rendered_content/demofile.html", "w")
+	f.write(email_config.content)
 	f.close()
 	
 

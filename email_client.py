@@ -21,7 +21,11 @@ class EmailConfig:
 
 	def add_content(self, html_content):
 
-		self.content = html_content
+		f = open('example_content/example.css', 'r')
+		style_guide = f.read()
+		f.close()
+
+		self.content = style_guide + ' ' + html_content
 
 	def send_email(self):
 
